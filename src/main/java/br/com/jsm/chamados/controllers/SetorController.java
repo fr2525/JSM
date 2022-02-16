@@ -26,7 +26,7 @@ public class SetorController {
 	}
 
 	public void list() {
-		Query query = this.entityManager.createQuery("from setorModel");
+		Query query = this.entityManager.createQuery("from SetorModel");
 		List<SetorModel> setores = query.getResultList();
 		result.include("setores", setores);
 	}
