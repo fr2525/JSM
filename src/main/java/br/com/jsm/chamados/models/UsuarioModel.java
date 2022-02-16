@@ -15,7 +15,7 @@ import br.com.jsm.chamados.types.StUsuarioType;
 public class UsuarioModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int dUsuario;
+	private int idUsuario;
 	
 	private String nmUsuario;
 	private String nrTelefone;
@@ -29,10 +29,10 @@ public class UsuarioModel {
 	private StUsuarioType stUsuario; 
 	
 	public int getdUsuario() {
-		return dUsuario;
+		return idUsuario;
 	}
-	public void setdUsuario(int dUsuario) {
-		this.dUsuario = dUsuario;
+	public void setdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	public String getNmUsuario() {
 		return nmUsuario;
