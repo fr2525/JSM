@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table(name = "SETOR")
 public class SetorModel {
@@ -16,6 +18,8 @@ public class SetorModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSetor;
+	
+	@NotBlank
 	private String nmSetor;
 	
 	@OneToMany(mappedBy = "setor")

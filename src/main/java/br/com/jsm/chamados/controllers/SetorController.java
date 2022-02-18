@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.Validator;
 import br.com.jsm.chamados.models.SetorModel;
 
 @Controller
@@ -19,7 +20,9 @@ public class SetorController {
 	@Inject
 	private Result result;
 	
-
+	@Inject
+	private Validator validator;
+	
 	public void edit(SetorModel setor) {
 		result.include("setor", setor);
 
@@ -32,6 +35,8 @@ public class SetorController {
 	}
 	
 	public void save(SetorModel setor) {
+		validator.validate(setor);
+		validator.onErrorForwardTo(this).edit(setor);
 		if (setor.getIdSetor() == 0) {
 			create(setor);
 		} else {
