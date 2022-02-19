@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import br.com.jsm.chamados.types.StUsuarioType;
 
 @Entity
@@ -17,8 +19,11 @@ public class UsuarioModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUsuario;
 	
+	@NotBlank
 	private String nmUsuario;
 	private String nrTelefone;
+	
+	@NotBlank
 	private String dsEmail;
 	
 	@OneToOne

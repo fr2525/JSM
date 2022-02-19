@@ -15,7 +15,7 @@
 
 	<display:table name="setores" requestURI="/chamados/setor/list" sort="page" export="true" >
 		<display:column property="idSetor"  title="Cod" href="read" paramId="setor.idSetor" paramProperty="idSetor" media="html" /> 
-		<display:column property="nmSetor" title="Nome" sortable="true" />
+		<display:column property="nmSetor" titleKey="nmSetor" sortable="true" />
 	
 	</display:table>
 </div>
