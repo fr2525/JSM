@@ -7,8 +7,8 @@
 <title>Cadastro de Setores</title>
 </head>
 <body>
-	<h2>Cadastro de Setores</h2>
-	<form action="/chamados/setor/save" method="post" > 
+	<h2>Cadastro de Usuarios</h2>
+	<form action="/chamados/usuario/save" method="post" > 
 	
 	<ul>
 	<c:forEach items="${ errors }" var="error" >
@@ -22,13 +22,34 @@
 		
 	</ul>
 	
-	<input type="hidden" name="setor.idSetor" value="${ setor.idSetor }" />
-	<fmt:message key="nmSetor" />:  <input type="text" name="setor.nmSetor" value="${ setor.nmSetor }" /> 
+	<input type="hidden" name="usuario.idUsuario" value="${ usuario.idUsuario }" />
+	<fmt:message key="nmUsuario" />:  <input type="text" name="usuario.nmUsuario" value="${ usuario.nmUsuario }" /> 
 	<br> 
+	<fmt:message key="dsEmail" />:  <input type="text" name="usuario.dsEmail" value="${ usuario.dsEmail }" /> 
+	<br> 
+	<fmt:message key="nrTelefone" />:  <input type="text" name="usuario.nrTelefone" value="${ usuario.nrTelefone }" /> 
+	<br>
+	<fmt:message key="idSetor" />: 
+		<select name="idSetor" >
+			<option>Setor x</option>
+			<option>Setor y</option>
+		</select>	 
+	<br> 
+	<fmt:message key="dsSenha" />:  <input type="password" name="usuario.dsSenha" value="${ usuario.dsSenha }" /> 
+	<br> 
+	<fmt:message key="dsSenhaConfirm" />:  <input type="password" name="usuario.dsSenhaConfirm"  /> 
+	<br> 
+	<fmt:message key="stUsuario" />: 
+		<select name="stUsuario" >
+			<option>Ativo</option>
+			<option>Inativo</option>
+		</select>	 
+	<br> 
+
 	<br>
 	<button type="submit">Gravar</button>
-	<button onclick="forms[0].action='/chamados/setor/delete'">Excluir</button>
-	<button onclick="forms[0].action='/chamados/setor/list'">Voltar</button>
+	<button onclick="forms[0].action='/chamados/usuario/delete'">Excluir</button>
+	<button onclick="forms[0].action='/chamados/usuario/list'">Voltar</button>
 	</form>
 </body>
 </html>

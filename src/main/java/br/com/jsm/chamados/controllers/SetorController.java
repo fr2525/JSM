@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.jsm.chamados.business.SetorBO;
 import br.com.jsm.chamados.models.SetorModel;
 
 @Controller
@@ -23,15 +24,17 @@ public class SetorController {
 	@Inject
 	private Validator validator;
 	
+	private SetorBO setorBO;
+	
 	public void edit(SetorModel setor) {
 		result.include("setor", setor);
 
 	}
 
+	
 	public void list() {
-		Query query = this.entityManager.createQuery("from SetorModel");
-		List<SetorModel> setores = query.getResultList();
-		result.include("setores", setores);
+		setorBO = new SetorBO();
+		result.include("setores", setorBO.getListSetor(entityManager));
 	}
 	
 	public void save(SetorModel setor) {

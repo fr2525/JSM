@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -21,22 +22,31 @@ public class UsuarioModel {
 	
 	@NotBlank
 	private String nmUsuario;
+	
 	private String nrTelefone;
 	
 	@NotBlank
 	private String dsEmail;
 	
+	@NotBlank
 	@OneToOne
 	@JoinColumn(name = "idSetor")
 	private SetorModel setor;
 
+	@NotBlank
 	private String dsSenha;
+	
+	@Transient
+	private String dsSenhaConfirm;
+	
+
+	@NotBlank
 	private StUsuarioType stUsuario; 
 	
-	public int getdUsuario() {
+	public int getIdUsuario() {
 		return idUsuario;
 	}
-	public void setdUsuario(int idUsuario) {
+	public void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 	public String getNmUsuario() {
@@ -74,6 +84,12 @@ public class UsuarioModel {
 	}
 	public void setStUsuario(StUsuarioType stUsuario) {
 		this.stUsuario = stUsuario;
+	}
+	public String getDsSenhaConfirm() {
+		return dsSenhaConfirm;
+	}
+	public void setDsSenhaConfirm(String dsSenhaConfirm) {
+		this.dsSenhaConfirm = dsSenhaConfirm;
 	}
 	
 	
