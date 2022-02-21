@@ -31,7 +31,6 @@ public class SetorController {
 
 	}
 
-	
 	public void list() {
 		setorBO = new SetorBO();
 		result.include("setores", setorBO.getListSetor(entityManager));

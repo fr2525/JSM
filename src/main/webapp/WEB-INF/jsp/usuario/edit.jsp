@@ -30,9 +30,11 @@
 	<fmt:message key="nrTelefone" />:  <input type="text" name="usuario.nrTelefone" value="${ usuario.nrTelefone }" /> 
 	<br>
 	<fmt:message key="idSetor" />: 
-		<select name="idSetor" >
-			<option>Setor x</option>
-			<option>Setor y</option>
+		<select name="usuario.setor.idSetor" >
+		<option value="0">SELECIONE</option>
+		<c:forEach items="${ setores }" var="setor">
+			<option value="${ setor.idSetor }" <c:if test="${setor.idSetor == usuario.setor.idSetor }">SELECTED</c:if> >${ setor.nmSetor }</option>
+		</c:forEach>
 		</select>	 
 	<br> 
 	<fmt:message key="dsSenha" />:  <input type="password" name="usuario.dsSenha" value="${ usuario.dsSenha }" /> 
@@ -40,10 +42,13 @@
 	<fmt:message key="dsSenhaConfirm" />:  <input type="password" name="usuario.dsSenhaConfirm"  /> 
 	<br> 
 	<fmt:message key="stUsuario" />: 
-		<select name="stUsuario" >
-			<option>Ativo</option>
-			<option>Inativo</option>
-		</select>	 
+		<select name="usuario.stUsuario" >
+			<c:forEach items="${ situacoes }" var="situacao">
+			<option value="${ situacao }" <c:if test="${situacao.value == usuario.stUsuario.value }">SELECTED</c:if> > ${situacao } </option>
+				
+			</c:forEach>
+		</select>
+	 
 	<br> 
 
 	<br>
